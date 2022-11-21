@@ -17,11 +17,11 @@ public class MaquinaExpendedoraMejorada {
      * del billete que se recibe es mayor que 0.
      */
     public MaquinaExpendedoraMejorada(int precioDelBillete, String origen, String destino) {
-        precioBillete = precioDelBillete;
+        precioBillete = 15;
         balanceClienteActual = 0;
         totalDineroAcumulado = 0;
-        estacionOrigen = origen;
-        estacionDestino = destino;
+        estacionOrigen = "Leon";
+        estacionDestino = "Barcelona";
     }
 
     /**
