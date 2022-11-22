@@ -23,6 +23,7 @@ public class MaquinaExpendedoraMejorada {
         totalDineroAcumulado = 0;
         estacionOrigen = origen;
         estacionDestino = destino;
+        numeroBilletes = 0;
     }
     
     public MaquinaExpendedoraMejorada() {
@@ -31,6 +32,7 @@ public class MaquinaExpendedoraMejorada {
         totalDineroAcumulado = 0;
         estacionOrigen = "Leon";
         estacionDestino = "Barcelona";
+        numeroBilletes = 0;
     }
 
     /**
