@@ -96,13 +96,14 @@ public class MaquinaExpendedoraMejorada {
     public int vaciarDinero() {
         int vaciarDinero;
         vaciarDinero = totalDineroAcumulado + balanceClienteActual;
-            if (balanceClienteActual == 0){
-                balanceClienteActual = 0;
-                totalDineroAcumulado = 0;
-            }
-            else{
-                vaciarDinero = -1;
-            }
+        if (balanceClienteActual == 0) {
+            balanceClienteActual = 0;
+            totalDineroAcumulado = 0;
+        }
+        else {
+            System.out.println("No se puede realizar la acción porque la operación del cliente sigue  activa");
+            vaciarDinero = -1;
+        }
         return vaciarDinero;
     } 
 }
