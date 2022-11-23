@@ -12,6 +12,8 @@ public class MaquinaExpendedoraMejorada {
     private String estacionDestino;
     
     private int numeroBilletes;
+    
+    private boolean premios;
     /**
      * Crea una maquina expendedora de billetes de tren con el 
      * precio del billete y el origen y destino dados. Se asume que el precio
@@ -81,6 +83,10 @@ public class MaquinaExpendedoraMejorada {
             totalDineroAcumulado = totalDineroAcumulado + precioBillete;
             // Reduce el balance del cliente actual dejandole seguir utilizando la maquina
             balanceClienteActual = balanceClienteActual - precioBillete;
+            
+            if (premios == true){
+                System.out.println("Enhorabuena has ganado un descuento de "+(precioBillete*0.25)+"€ rn un establecimiento.");
+            }
         }
         else {
             System.out.println("Cantidad de dinero que falta: " + cantidadDeDineroQueFalta);
