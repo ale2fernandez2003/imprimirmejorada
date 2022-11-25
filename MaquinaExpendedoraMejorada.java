@@ -15,15 +15,15 @@ public class MaquinaExpendedoraMejorada {
     
     private boolean premios;
     
-    private int numeroMaximoBilletes;
-    
+    private int maximoBilletes;
+
     private int billetes;
     /**
      * Crea una maquina expendedora de billetes de tren con el 
      * precio del billete y el origen y destino dados. Se asume que el precio
      * del billete que se recibe es mayor que 0.
      */
-    public MaquinaExpendedoraMejorada(int precioDelBillete, String origen, String destino, boolean canjearPremios, int maximoBilletes) {
+    public MaquinaExpendedoraMejorada(int precioDelBillete, String origen, String destino, boolean canjearPremios, int maximoDeBilletes) {
         precioBillete = precioDelBillete;
         balanceClienteActual = 0;
         totalDineroAcumulado = 0;
@@ -31,10 +31,11 @@ public class MaquinaExpendedoraMejorada {
         estacionDestino = destino;
         numeroBilletes = 0;
         premios = canjearPremios;
-        numeroMaximoBilletes = maximoBilletes;
+        maximoBilletes = maximoDeBilletes;
+        billetes = 0;
     }
     
-    public MaquinaExpendedoraMejorada(boolean canjearPremios, int maximoBilletes) {
+    public MaquinaExpendedoraMejorada(boolean canjearPremios, int maximoDeBilletes) {
         precioBillete = 15;
         balanceClienteActual = 0;
         totalDineroAcumulado = 0;
@@ -42,7 +43,8 @@ public class MaquinaExpendedoraMejorada {
         estacionDestino = "Barcelona";
         numeroBilletes = 0;
         premios = canjearPremios;
-        numeroMaximoBilletes =maximoBilletes;
+        maximoBilletes = maximoDeBilletes;
+        billetes = 0;
     }
 
     /**
@@ -63,17 +65,17 @@ public class MaquinaExpendedoraMejorada {
      * Simula la introduccion de dinero por parte del cliente actual
      */
     public void introducirDinero(int cantidadIntroducida) {
-        if (numeroMaximoBilletes > billetes){
-            if (billetes > 0) {
-                balanceClienteActual = balanceClienteActual + billetes;
+        if (maximoBilletes > billetes){
+            if (cantidadIntroducida > 0) {
+                balanceClienteActual = balanceClienteActual + cantidadIntroducida;
             }
             else {
-                System.out.println(billetes + " no es una cantidad de dinero valida.");
+                System.out.println(cantidadIntroducida + " no es cantidad de dinero valida.");
             }
         }
         else{
-            System.out.println("No quedan billetes por imprimir numero maximo alcanzado");
-        }       
+            System.out.println("Numero maximo de billetes alcanzado");
+        }
     }
 
     /**
