@@ -17,6 +17,7 @@ public class MaquinaExpendedoraMejorada {
     
     private int numeroMaximoBilletes;
     
+    private int billetes;
     /**
      * Crea una maquina expendedora de billetes de tren con el 
      * precio del billete y el origen y destino dados. Se asume que el precio
@@ -41,7 +42,7 @@ public class MaquinaExpendedoraMejorada {
         estacionDestino = "Barcelona";
         numeroBilletes = 0;
         premios = canjearPremios;
-        numeroMaximoBilletes = maximoBilletes;
+        numeroMaximoBilletes =maximoBilletes;
     }
 
     /**
@@ -62,17 +63,17 @@ public class MaquinaExpendedoraMejorada {
      * Simula la introduccion de dinero por parte del cliente actual
      */
     public void introducirDinero(int cantidadIntroducida) {
-        if (numeroMaximoBilletes > cantidadIntroducida){
-            if (cantidadIntroducida > 0) {
-                balanceClienteActual = balanceClienteActual + cantidadIntroducida;
+        if (numeroMaximoBilletes > billetes){
+            if (billetes > 0) {
+                balanceClienteActual = balanceClienteActual + billetes;
             }
             else {
-                System.out.println(cantidadIntroducida + " no es una cantidad de dinero valida.");
+                System.out.println(billetes + " no es una cantidad de dinero valida.");
             }
         }
         else{
             System.out.println("No quedan billetes por imprimir numero maximo alcanzado");
-        }  
+        }       
     }
 
     /**
