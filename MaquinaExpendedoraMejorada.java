@@ -83,29 +83,34 @@ public class MaquinaExpendedoraMejorada {
      */
     public void imprimirBillete() {
         int cantidadDeDineroQueFalta = precioBillete - balanceClienteActual;
-        if (cantidadDeDineroQueFalta <= 0) {        
-            // Simula la impresion de un billete
-            System.out.println("##################");
-            System.out.println("# Billete de tren:");
-            System.out.println("# De " + estacionOrigen + " a " + estacionDestino);
-            System.out.println("# " + precioBillete + " euros.");
-            System.out.println("##################");
-            System.out.println();    
-            
-            numeroBilletes += 1;
-    
-            // Actualiza el total de dinero acumulado en la maquina
-            totalDineroAcumulado = totalDineroAcumulado + precioBillete;
-            // Reduce el balance del cliente actual dejandole seguir utilizando la maquina
-            balanceClienteActual = balanceClienteActual - precioBillete;
-            
-            if (premios == true){
-                System.out.println("Has ganado un descuento de "+(precioBillete*0.25)+"€ en un establecimiento.");
+        if (maximoBilletes > billetes){
+            if (cantidadDeDineroQueFalta <= 0) {        
+                // Simula la impresion de un billete
+                System.out.println("##################");
+                System.out.println("# Billete de tren:");
+                System.out.println("# De " + estacionOrigen + " a " + estacionDestino);
+                System.out.println("# " + precioBillete + " euros.");
+                System.out.println("##################");
+                System.out.println();    
+                
+                numeroBilletes += 1;
+        
+                // Actualiza el total de dinero acumulado en la maquina
+                totalDineroAcumulado = totalDineroAcumulado + precioBillete;
+                // Reduce el balance del cliente actual dejandole seguir utilizando la maquina
+                balanceClienteActual = balanceClienteActual - precioBillete;
+                
+                if (premios == true){
+                    System.out.println("Has ganado un descuento de "+(precioBillete*0.25)+"€ en un establecimiento.");
+                }
             }
+            else {
+                System.out.println("Cantidad de dinero que falta: " + cantidadDeDineroQueFalta);
+            } 
         }
         else {
-            System.out.println("Cantidad de dinero que falta: " + cantidadDeDineroQueFalta);
-        }              
+            System.out.println("No quedan billetes por imprimir numero maximo alcanzado");
+        }
     }
     
     public int getNumeroBilletesVendidos(){
